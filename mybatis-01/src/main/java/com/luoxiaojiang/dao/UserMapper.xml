@@ -10,4 +10,13 @@
     <select id="getUserById" parameterType="String" resultType="com.luoxiaojiang.pojo.User">
         select * from test.user where Id=#{id}
     </select>
+    <insert id="insertUser" parameterType="com.luoxiaojiang.pojo.User">
+        insert into test.user (Id,Name,Pwd) values(#{Id},#{Name},#{Pwd});
+    </insert>
+    <update id="updateUser" parameterType="com.luoxiaojiang.pojo.User">
+        update test.user set Name=#{Name},Pwd=#{Pwd} where Id=#{Id}
+    </update>
+    <delete id="delUser" parameterType="String">
+        delete from test.user where Id=#{id}
+    </delete>
 </mapper>

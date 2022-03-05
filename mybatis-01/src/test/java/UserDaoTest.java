@@ -12,15 +12,14 @@ public class UserDaoTest {
         //第一步：获取sqlSession对象
         SqlSession sqlSession= MybatisUtils.getSqlSession();
         //第二步：执行sql
-        UserMapper userDao=sqlSession.getMapper(UserMapper.class);
+        UserMapper userMapper=sqlSession.getMapper(UserMapper.class);
         //第三步：调用方法
-//        List<User> list=userDao.getUserList();
-//        for (User item:list
-//             ) {
-//            System.out.println(item);
-//        }
-        User nowUser= userDao.getUserById("1002");
-        System.out.println(nowUser);
+        int res=userMapper.delUser("1010");
+        if(res>0){
+            System.out.println("删除成功\n");
+        }
+        //提交事务
+        sqlSession.commit();//插入数据时必须要提交事务，否侧插入不成功
         //第四步：关闭sqlSession
         sqlSession.close();
     }
