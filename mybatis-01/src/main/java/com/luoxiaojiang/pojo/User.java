@@ -1,5 +1,9 @@
 package com.luoxiaojiang.pojo;
+
+import org.apache.ibatis.type.Alias;
+
 //用户实体类
+@Alias("User")
 public class User {
     private String Id;
     private String Name;
